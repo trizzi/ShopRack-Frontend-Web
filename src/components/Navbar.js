@@ -32,12 +32,12 @@ const Navbar = () => {
           ABOUT
         </Link>
         <Button
-          className='p-4 border bg-orange-600 border-orange-600 hover:border-orange-400 ...'
+          className='py-6 px-10 border bg-orange-600 border-orange-600 hover:border-orange-400 ...'
           text='GET STARTED'
         />
 
         <Button
-          className='p-4 border border-orange-600 hover:border-orange-400 ...  '
+          className='py-6 px-10 border border-orange-600 hover:border-orange-400 ...  '
           text='LOGIN'
         />
       </div>
