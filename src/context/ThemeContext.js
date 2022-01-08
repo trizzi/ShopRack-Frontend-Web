@@ -17,8 +17,10 @@ export const ThemeContextProvider = ({children}) => {
             dark:'#2a2a65'
         },
         textcolor:{
-            100: '#ffffff'
-        }
+            light: '#ffffff'
+        },
+        transparent: 'transparent',
+        current: 'inherit',
     })
     return (
         <ThemeContext.Provider value={{theme, setTheme}}>
