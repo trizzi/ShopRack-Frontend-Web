@@ -1,0 +1,61 @@
+[
+    {
+        "title":"COMPANY",
+        "items":[
+            {
+                "text":"About",
+                "link": "/about"
+            },
+            {
+                "text":"Testimonials",
+                "link": "/testimonials"
+            },
+            {
+                "text":"App",
+                "link": "/app"
+            }
+        ]
+    },
+    {
+        "title":"CONTACT US",
+        "items":[
+            {
+                "text":"Facebook",
+                "link": "https://facebook.com"
+            },
+            {
+                "text":"Twitter",
+                "link": "https://twitter.com"
+            },
+            {
+                "text":"Instagram",
+                "link": "https://instagram.com"
+            },
+            {
+                "text":"Medium",
+                "link": "https://medium.com"
+            }
+        ]
+    },
+    {
+        "title":"HELP",
+        "items":[
+            {
+                "text":"Help Center",
+                "link": "/help"
+            },
+            {
+                "text":"Contact Support",
+                "link": "/contact"
+            },
+            {
+                "text":"Instructions",
+                "link": "/instructions"
+            },
+            {
+                "text":"How it works",
+                "link":"/how"
+            }
+        ]
+    }
+]
