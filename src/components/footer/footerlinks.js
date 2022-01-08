@@ -5,9 +5,9 @@ function Footerlinks({category}) {
         <ul className="w-full sm:w-1/2 md:w-1/3">
             <li>{category.title}</li>
             {
-                category.items.map((item)=>{
+                category.items.map((item)=>(
                     <li key={item.text}><a href={item.link}>About</a></li>
-                })
+                ))
             }
         </ul>
     )

@@ -14,6 +14,7 @@ const Footer = () => {
                         <img 
                             src="/img/logo.svg"
                             className="w-20 h-20 rounded-full bg-white"
+                            alt="logo"
                         />
                         <h2 className='text-2xl font-black text-white'>ShopRacks</h2>
                     </div>
@@ -33,9 +34,9 @@ const Footer = () => {
                 </div>
 
                 <div className="flex w-full md:w-2/3">
-                    {links.map((category)=>{
+                    {links.map((category)=>(
                         <Footerlinks category={category} key={category.title} />
-                    })}
+                    ))}
                 </div>
             </div>
         </Footer>
