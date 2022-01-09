@@ -11,8 +11,8 @@ const Footer = () => {
 
     return (
         <footer className="py-20 min-h-0 w-full mt-20" style={{backgroundColor:theme.primary.normal}}>
-            <div className="flex container mx-auto md:p-12">
-                <div className="w-full md:w-1/3 flex flex-col">
+            <div className="md:flex container mx-auto md:p-12">
+                <div className="w-full md:w-1/3 flex flex-col p-8">
                     <div className='w-full min-h-0 flex items-center space-x-2'>
                         <img 
                             src="/img/logo.svg"
@@ -39,9 +39,9 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="flex w-full md:w-2/3" style={{color:theme.textcolor.light}}>
+                <div className="flex w-full md:w-2/3 p-8" style={{color:theme.textcolor.light}}>
                     {footerItems && footerItems.map((category)=>(
-                        <div className="w-full sm:w-1/2 md:w-1/3 flex justify-end" key={category.title}>
+                        <div className="w-full sm:w-1/2 md:w-1/3 flex md:justify-end mt-10 md:mt-0" key={category.title}>
                             <FooterlistItem category={category} />
                         </div>
                     ))}
