@@ -11,7 +11,7 @@ const Navbar = () => {
       style={{color:theme.textcolor.dark}}
     >
       <div
-        className='flex justify-between items-center min-h-0 relative shadow-sm font-mulish'
+        className='flex justify-between items-center min-h-0 relative shadow-sm font-mulish container mx-auto'
       >
         <Link to='#' className='pl-2 shrink-0'>
           <img
