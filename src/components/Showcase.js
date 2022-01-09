@@ -9,6 +9,7 @@ const Showcase = () => {
   return (
     <div
       className='container mx-auto md:px-20 md:flex md:justify-around md:items-center font-mulish'
+      style={{color:theme.textcolor.dark}}
     >
       <div className="flex flex-col w-full md:w-1/2 px-10 sm:px-1 md:pr-20 pt-20">
         <h1 className="text-3xl md:text-3xl xl:text-5xl font-bold w-full lg:w-4/5 py-5 md:py-1">

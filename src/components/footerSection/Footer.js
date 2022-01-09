@@ -10,7 +10,9 @@ const Footer = () => {
     const { theme } = useTheme(); // Get theme colors
 
     return (
-        <footer className="py-20 min-h-0 w-full mt-20" style={{backgroundColor:theme.primary.normal}}>
+        <footer className="py-20 min-h-0 w-full mt-20" 
+            style={{backgroundColor:theme.primary.normal, color:theme.textcolor.black}}
+        >
             <div className="md:flex container mx-auto md:p-12">
                 <div className="w-full md:w-1/3 flex flex-col p-8">
                     <div className='w-full min-h-0 flex items-center space-x-2'>

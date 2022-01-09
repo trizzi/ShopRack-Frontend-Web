@@ -1,11 +1,14 @@
 import React from 'react';
 import Button from './button-component/Button';
 import { Link } from 'react-router-dom';
+import {useTheme} from '../context/ThemeContext';
 
 const Navbar = () => {
+  const {theme} = useTheme();
   return (
     <nav
       role='navigation'
+      style={{color:theme.textcolor.dark}}
     >
       <div
         className='flex justify-between items-center min-h-0 relative shadow-sm font-mulish'
