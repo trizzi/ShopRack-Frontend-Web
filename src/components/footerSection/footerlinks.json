@@ -21,19 +21,23 @@
         "items":[
             {
                 "text":"Facebook",
-                "link": "https://facebook.com"
+                "link": "https://www.facebook.com/shopracksng"
             },
             {
                 "text":"Twitter",
-                "link": "https://twitter.com"
+                "link": "https://twitter.com/shopracksng"
             },
             {
                 "text":"Instagram",
-                "link": "https://instagram.com"
+                "link": "https://www.instagram.com/shopracksng"
+            },
+            {
+                "text":"LinkedIn",
+                "link": "https://www.linkedin.com/company/shopracksng/"
             },
             {
                 "text":"Medium",
-                "link": "https://medium.com"
+                "link": "https://medium.com/@ShopRacksng"
             }
         ]
     },

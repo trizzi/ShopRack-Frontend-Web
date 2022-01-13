@@ -1,33 +1,60 @@
-import React from 'react';
-import CustomerReviewItem from './CustomerReviewItem';
-import reviewdata from './reviewData.json';
-import {useTheme} from '../../context/ThemeContext'
+import React from "react";
+import CustomerReviewItem from "./CustomerReviewItem";
+import reviewdata from "./reviewData.json";
+import { useTheme } from "../../context/ThemeContext";
 
 const CustomerReview = () => {
-  const {theme} = useTheme();
+    const { theme } = useTheme();
 
-  return (
-    <div className='container mx-auto py-10 lg:py-32 flex justify-center'>
-      <div className="w-11/12 lg:w-9/12 p-10 lg:p-20 rounded-3xl bg-gradient-to-t from-indigo-900 via-purple-800 to-pink-500" 
-        style={{color:theme.textcolor.light}}
-      >
-        <div className="flex flex-col items-center space-y-7">
-          <h1 className="text-3xl xl:text-4xl font-black">
-            What our customers are saying
-          </h1>
-          <span className="h-1 w-20 bg-gray-200"></span>
+    return (
+        <div className="container mx-auto py-10 lg:py-32 flex justify-center">
+            <div
+                className={
+                    `w-11/12 lg:w-9/12 p-10 lg:p-20 rounded-3xl bg-gradient-to-t 
+                    from-indigo-900 via-purple-800 to-pink-500 relative`
+                }
+                style={{ color: theme.textcolor.light }}
+            >
 
+                <div
+                    className="absolute top-0 left-0 -ml-28 -mt-28 md:-mt-10 lg:-mt-28 z-10"
+                >
+                    <svg width="200" height="200" viewBox="0 0 249 249" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.3207 62.7313L62.7589 16.293C54.5145 21.0041 46.8589 26.6406 39.9324 33.0343L33.0621 39.9047C26.6684 46.8592 21.0319 54.4868 16.3207 62.7313Z" fill="#F25B26"/>
+                        <path d="M2.46777 99.6346L99.6627 2.4397C96.9707 2.9725 94.3347 3.61743 91.6987 4.31849L4.34661 91.6705C3.61751 94.3065 3.00058 96.9705 2.46777 99.6346Z" fill="#F25B26"/>
+                        <path d="M0 124.34C0 124.592 0 124.873 0 125.125L125.125 0C124.873 0 124.592 0 124.34 0C122.545 0 120.722 0.0561088 118.956 0.112194L0.112151 118.956C0.056066 120.751 0 122.545 0 124.34Z" fill="#F25B26"/>
+                        <path d="M1.93491 146.269L146.269 1.93475C144.531 1.62628 142.764 1.34592 141.025 1.12158L1.1217 141.025C1.34604 142.764 1.62645 144.53 1.93491 146.269Z" fill="#F25B26"/>
+                        <path d="M6.64596 164.581L164.581 6.64613C163.066 6.11332 161.524 5.63654 159.982 5.18787L5.18774 159.982C5.63642 161.524 6.1412 163.067 6.64596 164.581Z" fill="#F25B26"/>
+                        <path d="M13.5164 180.761L180.789 13.4883C179.443 12.7872 178.069 12.1423 176.695 11.4973L11.5254 176.667C12.1704 178.069 12.8154 179.415 13.5164 180.761Z" fill="#F25B26"/>
+                        <path d="M22.1535 195.175L195.203 22.1255C193.997 21.2842 192.791 20.471 191.558 19.6858L19.7138 191.529C20.499 192.791 21.3122 193.997 22.1535 195.175Z" fill="#F25B26"/>
+                        <path d="M32.3609 208.019L208.018 32.3611C206.953 31.4077 205.887 30.4542 204.794 29.5288L29.5286 204.794C30.454 205.888 31.3794 206.953 32.3609 208.019Z" fill="#F25B26"/>
+                        <path d="M44.0826 219.32L219.32 44.083C218.394 42.9894 217.441 41.8957 216.487 40.8301L40.8297 216.488C41.9234 217.469 42.9889 218.395 44.0826 219.32Z" fill="#F25B26"/>
+                        <path d="M57.3467 229.135L229.134 57.3469C228.349 56.113 227.536 54.9072 226.695 53.7014L53.7012 226.695C54.907 227.508 56.1128 228.321 57.3467 229.135Z" fill="#F25B26"/>
+                        <path d="M72.2372 237.267L237.267 72.2375C236.622 70.8634 235.977 69.4893 235.276 68.1433L68.1149 235.304C69.489 235.977 70.8631 236.65 72.2372 237.267Z" fill="#F25B26"/>
+                        <path d="M88.9785 243.576L243.604 88.9507C243.156 87.4084 242.651 85.8661 242.146 84.3518L84.3795 242.118C85.8658 242.651 87.4081 243.128 88.9785 243.576Z" fill="#F25B26"/>
+                        <path d="M107.963 247.614L247.614 107.963C247.39 106.197 247.11 104.43 246.801 102.691L102.691 246.801C104.458 247.138 106.197 247.39 107.963 247.614Z" fill="#F25B26"/>
+                        <path d="M124.34 248.708C126.275 248.708 128.182 248.652 130.061 248.568L248.54 130.089C248.624 128.182 248.68 126.275 248.68 124.368C248.68 124.2 248.68 124.06 248.68 123.891L123.863 248.708C124.031 248.708 124.2 248.708 124.34 248.708Z" fill="#F25B26"/>
+                        <path d="M157.458 244.25L244.249 157.458C244.978 154.823 245.623 152.158 246.184 149.466L149.466 246.185C152.158 245.624 154.822 244.951 157.458 244.25Z" fill="#F25B26"/>
+                        <path d="M231.939 186.735L186.706 231.967C205.439 221.059 221.058 205.439 231.939 186.735Z" fill="#F25B26"/>
+                    </svg>
+
+                </div>
+                <div className="flex flex-col items-center space-y-7 relative z-20">
+                    <h1 className="text-3xl xl:text-4xl font-black">
+                        What our customers are saying
+                    </h1>
+                    <span className="h-1 w-20 bg-gray-200"></span>
+                </div>
+
+                {reviewdata.map((reviewdata) => (
+                    <CustomerReviewItem
+                        key={reviewdata.id}
+                        reviewdata={reviewdata}
+                    />
+                ))}
+            </div>
         </div>
-
-        {reviewdata.map((reviewdata) => (
-          <CustomerReviewItem
-            key={reviewdata.id}
-            reviewdata={reviewdata}
-          />
-        ))}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default CustomerReview;

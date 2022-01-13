@@ -18,6 +18,8 @@ import { ThemeContextProvider } from './context/ThemeContext';
 function App() {
   return (
     <ThemeContextProvider>
+
+     <div className="overflow-x-hidden">
       <Router>
         <Routes>
           <Route
@@ -47,6 +49,8 @@ function App() {
           />
         </Routes>
       </Router>
+</div>
+
     </ThemeContextProvider>
   );
 }
