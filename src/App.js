@@ -13,17 +13,19 @@ import { ThemeContextProvider } from './context/ThemeContext';
 function App() {
   return (
     <ThemeContextProvider>
-      <Router>
-        <>
-          <Navbar />
-          <Showcase />
-          <Services />
-          <AppDownload />
-          <CustomerReview />
-          <Blog />
-          <Footer />
-        </>
-      </Router>
+      <div className="overflow-x-hidden">
+        <Router>
+          <>
+            <Navbar />
+            <Showcase />
+            <Services />
+            <AppDownload />
+            <CustomerReview />
+            <Blog />
+            <Footer />
+          </>
+        </Router>
+      </div>
     </ThemeContextProvider>
   );
 }

@@ -1,22 +1,42 @@
-import React from 'react';
+import React from "react";
+import { useTheme } from "../../context/ThemeContext";
 
 const CustomerReviewItem = ({
-  reviewdata: { image, name, occupation, review },
+    reviewdata: { image, name, occupation, review },
 }) => {
-  return (
-    <div className="md:flex pt-10 items-center">
-      <div className="flex w-full md:w-1/2 space-x-4">
-        <img src={image} alt='Customer-face' className="rounded-full w-32 h-32" />
-        <div className="flex flex-col justify-center">
-          <h5 className="text-xl font-bold">{name}</h5>
-          <small>{occupation}</small>
+    
+    return (
+        <div className="md:flex pt-10 items-center relative">
+            <div className="flex w-full md:w-1/2 space-x-4">
+                <img
+                    src={image}
+                    alt="Customer-face"
+                    className="rounded-full w-32 h-32"
+                />
+                <div className="flex flex-col justify-center">
+                    <h5 className="text-xl font-bold">{name}</h5>
+                    <small>{occupation}</small>
+                </div>
+            </div>
+            <div className="w-full md:w-1/2 pr-10 py-10 md:py-0">
+                <p>{review}</p>
+            </div>
+
+            <div className="absolute right-0 bottom-0 -mb-28 -mr-28 lg:-mb-40 lg:-mr-40 ">
+                <svg width="165" height="192" viewBox="0 0 165 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M82.9425 180.882C85.1298 182.14 85.8689 184.938 84.6212 187.107C83.363 189.294 80.5649 190.033 78.3959 188.786C76.2269 187.538 75.4696 184.729 76.7173 182.56C77.9755 180.373 80.7551 179.623 82.9425 180.882Z" fill="#F25B26"/>
+                    <path d="M102.472 146.932C104.659 148.19 105.398 150.988 104.15 153.157C102.892 155.344 100.094 156.083 97.9249 154.836C95.756 153.588 94.9987 150.779 96.2463 148.61C97.494 146.441 100.284 145.673 102.472 146.932Z" fill="#F25B26"/>
+                    <path d="M65.2495 125.52C67.4369 126.779 68.1759 129.577 66.9282 131.746C65.67 133.933 62.8719 134.672 60.703 133.424C58.5156 132.166 57.7767 129.368 59.0243 127.199C60.2536 125.02 63.0622 124.262 65.2495 125.52Z" fill="#F25B26"/>
+                    <path d="M122.001 112.981C124.188 114.24 124.927 117.038 123.679 119.207C122.421 121.394 119.623 122.133 117.454 120.885C115.285 119.638 114.528 116.829 115.775 114.66C117.023 112.491 119.813 111.723 122.001 112.981Z" fill="#F25B26"/>
+                    <path d="M84.7787 91.5703C86.966 92.8285 87.705 95.6266 86.4574 97.7956C85.1991 99.983 82.4011 100.722 80.2321 99.4742C78.0447 98.216 77.3058 95.418 78.5535 93.2491C79.7827 91.0695 82.5913 90.3121 84.7787 91.5703Z" fill="#F25B26"/>
+                    <path d="M47.5567 70.1592C49.7441 71.4174 50.4831 74.2155 49.2354 76.3845C47.9772 78.5718 45.1791 79.3108 43.0101 78.0631C40.8228 76.8049 40.0838 74.0069 41.3315 71.8379C42.5608 69.6584 45.3693 68.9009 47.5567 70.1592Z" fill="#F25B26"/>
+                    <path d="M141.519 79.0498C143.706 80.3081 144.445 83.1061 143.198 85.2751C141.94 87.4625 139.141 88.2014 136.972 86.9537C134.804 85.7061 134.046 82.8975 135.294 80.7285C136.552 78.5412 139.332 77.7916 141.519 79.0498Z" fill="#F25B26"/>
+                    <path d="M104.297 57.6387C106.484 58.8969 107.224 61.695 105.976 63.864C104.718 66.0513 101.92 66.7903 99.7506 65.5426C97.5632 64.2844 96.8243 61.4864 98.072 59.3174C99.3118 57.1195 102.11 56.3805 104.297 57.6387Z" fill="#F25B26"/>
+                    <path d="M161.048 45.0993C158.866 43.8438 156.079 44.5954 154.823 46.7781C153.568 48.9607 154.319 51.7478 156.502 53.0033C158.684 54.2588 161.472 53.5072 162.727 51.3246C163.983 49.142 163.231 46.3548 161.048 45.0993Z" fill="#F25B26"/>   
+                </svg>
+            </div>
         </div>
-      </div>
-      <div className="w-full md:w-1/2 pr-10 py-10 md:py-0">
-        <p>{review}</p>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default CustomerReviewItem;
