@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const { theme } = useTheme();
@@ -84,10 +85,16 @@ const Signup = () => {
             </p>
           </div>
 
-          <Button text='SIGN IN' background />
+          <Button text='SIGN UP' background />
           <p className='px-7 py-3'>
             Already have a Shopracks account?
-            <span>Sign In</span>
+            <Link
+              to='/signin'
+              style={{
+                color: theme.primary.dark,
+              }}>
+              Sign In
+            </Link>
           </p>
           <p className='text-center py-7'>
             Forgot Password??
