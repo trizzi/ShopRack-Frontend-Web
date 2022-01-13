@@ -9,7 +9,7 @@ const Showcase = () => {
   return (
 
     
-=======
+
     <div className="relative">
       <div 
         className="absolute top-0 left-3/4 ml-20 lg:ml-52 rounded-full z-10" 
