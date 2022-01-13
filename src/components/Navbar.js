@@ -1,18 +1,15 @@
 import React from 'react';
 import Button from './button-component/Button';
 import { Link } from 'react-router-dom';
-import {useTheme} from '../context/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   return (
     <nav
       role='navigation'
-      style={{color:theme.textcolor.dark}}
-    >
-      <div
-        className='flex justify-between items-center min-h-0 relative shadow-sm font-mulish container mx-auto'
-      >
+      style={{ color: theme.textcolor.dark }}>
+      <div className='flex justify-between items-center min-h-0 relative shadow-sm font-mulish container mx-auto'>
         <Link to='#' className='pl-2 shrink-0'>
           <img
             className='w-48 p-2'
@@ -24,27 +21,20 @@ const Navbar = () => {
           <i className='fas fa-bars'></i>
         </div>
         <div className='pr-8 md:flex hidden space-x-5 lg:space-x-16 items-center'>
-          <Link  to='#'>
-            FAQs
-          </Link>
+          <Link to='#'>FAQs</Link>
           <Link to='#' className='whitespace-nowrap'>
             CONTACT US
           </Link>
-          <Link to='#' >
-            BLOG
-          </Link>
-          <Link to='#' >
-            ABOUT
+          <Link to='#'>BLOG</Link>
+          <Link to='#'>ABOUT</Link>
+
+          <Link to='/signup'>
+            <Button text='GET STARTED' background />
           </Link>
 
-          <Button
-            text='GET STARTED'
-            background
-          />
-
-          <Button
-            text='LOGIN'
-          />
+          <Link to='/signin'>
+            <Button text='LOGIN' />
+          </Link>
         </div>
       </div>
     </nav>
