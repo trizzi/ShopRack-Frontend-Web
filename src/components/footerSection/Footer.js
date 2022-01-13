@@ -1,13 +1,20 @@
-import React from "react";
-import { useTheme } from "../../context/ThemeContext";
-import FooterlistItem from "./FooterlistItem";
+import React from 'react';
+import { useTheme } from '../../context/ThemeContext';
+import FooterlistItem from './FooterlistItem';
 import footerItems from './footerlinks.json';
 
-import { FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa';
-import { AiFillMediumCircle, AiFillInstagram } from "react-icons/ai";
+import {
+  FaTwitter,
+  FaFacebook,
+  FaLinkedin,
+} from 'react-icons/fa';
+import {
+  AiFillMediumCircle,
+  AiFillInstagram,
+} from 'react-icons/ai';
 
 const Footer = () => {
-    const { theme } = useTheme(); // Get theme colors
+  const { theme } = useTheme(); // Get theme colors
 
     return (
         <footer className="py-20min-h-0 w-full mt-20 relative" 
@@ -45,16 +52,21 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="flex w-full md:w-2/3 p-8" style={{color:theme.textcolor.light}}>
-                    {footerItems && footerItems.map((category)=>(
-                        <div className="w-full sm:w-1/2 md:w-1/3 flex md:justify-end mt-10 md:mt-0" key={category.title}>
-                            <FooterlistItem category={category} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </footer>
-    );
+        <div
+          className='flex w-full md:w-2/3 p-8'
+          style={{ color: theme.textcolor.light }}>
+          {footerItems &&
+            footerItems.map((category) => (
+              <div
+                className='w-full sm:w-1/2 md:w-1/3 flex md:justify-end mt-10 md:mt-0'
+                key={category.title}>
+                <FooterlistItem category={category} />
+              </div>
+            ))}
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

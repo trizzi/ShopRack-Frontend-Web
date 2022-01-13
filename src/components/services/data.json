@@ -9,7 +9,8 @@
     "id": 2,
     "image": "img/pic-3.svg",
     "name": "Management",
-    "text": "ShopRacks takes the heat off you as it helps meet the management needs of your business"
+
+    "text": "ShopRacks takes the heat off you as it helps meet the mamangement needs of your business"
   },
   {
     "id": 3,
@@ -21,7 +22,7 @@
     "id": 4,
     "image": "img/pic-5.svg",
     "name": "Reports/Analytics",
-    "text": "Get empowered as you make informed decisions from insights got from Reports and Analytics"
+    "text": "Get empoered as you make informed deciosions from insights got from Reports and Analysts "
   },
   {
     "id": 5,
@@ -33,6 +34,6 @@
     "id": 6,
     "image": "img/pic-7.svg",
     "name": "Tracking",
-    "text": "Effortlessly track your inventories, invoices, orders and deliveries on ShopRacks"
+    "text": "Effortlessly track your inventories, invoices, orders and deliveries on ShopRacks "
   }
 ]
