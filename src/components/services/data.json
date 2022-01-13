@@ -3,36 +3,36 @@
     "id": 1,
     "image": "img/pic-2.svg",
     "name": "Delivery",
-    "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
+    "text": "Seemlessly track ordered products from your online store to your various customers"
   },
   {
     "id": 2,
     "image": "img/pic-3.svg",
     "name": "Management",
-    "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
+    "text": "ShopRacks takes the heat off you as it helps meet the management needs of your business"
   },
   {
     "id": 3,
     "image": "img/pic-4.svg",
     "name": "Invoicing",
-    "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
+    "text": "Create, send and track invoices on the go"
   },
   {
     "id": 4,
     "image": "img/pic-5.svg",
     "name": "Reports/Analytics",
-    "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
+    "text": "Get empowered as you make informed decisions from insights got from Reports and Analytics"
   },
   {
     "id": 5,
     "image": "img/pic-6.svg",
     "name": "Inventory",
-    "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
+    "text": "Properly document and manage your inventories"
   },
   {
     "id": 6,
     "image": "img/pic-7.svg",
     "name": "Tracking",
-    "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. "
+    "text": "Effortlessly track your inventories, invoices, orders and deliveries on ShopRacks"
   }
 ]
