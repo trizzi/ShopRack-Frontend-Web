@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './button-component/Button';
 
 import { useTheme } from '../context/ThemeContext';
+import { Link } from 'react-router-dom';
 
 const Showcase = () => {
   const { theme } = useTheme();
@@ -57,11 +58,9 @@ const Showcase = () => {
             and deliveries for online store owners.
           </p>
           <p>
-            <Button
-              text='GET STARTED'
-              size='min-w-0'
-              background
-            />
+            <Link to="/signup">
+              <Button text='GET STARTED' size='min-w-0' background />
+            </Link>
           </p>
         </div>
 

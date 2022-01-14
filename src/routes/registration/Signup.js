@@ -1,10 +1,31 @@
-import React from 'react';
-import Button from '../button-component/Button';
+import React,{useState, useEffect, useRef} from 'react';
+import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const { theme } = useTheme();
+  const [loading, setLoading] = useState(false)
+
+  const signup = useRef(null);
+
+  const signupHandler = (e)=>{
+    e.preventDefault();
+    setLoading(true);
+  }
+
+  useEffect(()=>{
+    const button = signup.current
+    button.addEventListener("click",signupHandler)
+
+    return ()=>{
+      if(button !== null){
+        button.removeEventListener("click",signupHandler);
+      }  
+      setLoading(false)
+    }
+  },[])
+
   return (
     <div className='h-screen flex justify-between items-center'>
       <div
@@ -47,16 +68,16 @@ const Signup = () => {
         </div>
         <form action='' className='flex flex-col'>
           <div
-            className='pt-10'
+            className='p-4 rounded-full'
             style={{
-              border: theme.primary.dark,
+              border: `1px solid ${theme.primary.dark}`,
             }}>
             <input type='text' placeholder='Company Name' />
           </div>
           <div
-            className='pt-10'
+            className='p-4 rounded-full mt-5'
             style={{
-              border: theme.primary.dark,
+              border: `1px solid ${theme.primary.dark}`,
             }}>
             <input
               type='text'
@@ -64,16 +85,16 @@ const Signup = () => {
             />
           </div>
           <div
-            className='pt-10'
+            className='p-4 rounded-full mt-5'
             style={{
-              border: theme.primary.dark,
+              border: `1px solid ${theme.primary.dark}`,
             }}>
             <input type='text' placeholder='Password' />
           </div>
           <div
-            className='pt-10'
+            className='p-4 rounded-full mt-5'
             style={{
-              border: theme.primary.dark,
+              border: `1px solid ${theme.primary.dark}`,
             }}>
             <input type='text' placeholder='Phone Number' />
           </div>
@@ -85,7 +106,13 @@ const Signup = () => {
             </p>
           </div>
 
-          <Button text='SIGN UP' background />
+          <Button 
+            text={loading ? 'Loading...' : 'SIGN UP'} 
+            background
+            disable={loading}
+            refs={signup}
+          />
+
           <p className='px-7 py-3'>
             Already have a Shopracks account?
             <Link
@@ -93,7 +120,7 @@ const Signup = () => {
               style={{
                 color: theme.primary.dark,
               }}>
-              Sign In
+              &nbsp; Sign In
             </Link>
           </p>
           <p className='text-center py-7'>
