@@ -1,11 +1,17 @@
 import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
+import { motion } from "framer-motion";
 
-const Button = ({ text, background, size,refs,disable}) => {
+const Button = ({ time,text, background, size,refs,disable}) => {
   const {theme} = useTheme();
 
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
   return (
-    <button 
+    <motion.button 
       className={`rounded-full py-2 lg:py-2 px-5 whitespace-nowrap 
         ${size && size} ${disable && "opacity-40"}`
       }
@@ -16,9 +22,14 @@ const Button = ({ text, background, size,refs,disable}) => {
       }}
       ref={refs}
       disabled={disable}
+
+      initial="hidden"
+      animate="visible"
+      variants={variants}
+      transition={{ delay: time || 2}}
     >
       {text}
-    </button>
+    </motion.button>
   );
 };
 

@@ -3,6 +3,9 @@ import ServiceItem from './ServiceItem';
 import data from './data.json';
 import Button from '../button-component/Button';
 import {useTheme} from '../../context/ThemeContext';
+import FadeIn from '../animations/FadeIn';
+import SlideInP from '../animations/SlideInP';
+import SlideIn from '../animations/SlideIn';
 
 
 const Services = () => {
@@ -18,14 +21,16 @@ const Services = () => {
       <div className='container mx-auto py-10 lg:py-32 relative z-20' style={{color:theme.textcolor.dark}}>
         <div className="flex flex-col items-center space-y-7">
           <h1 className="text-3xl xl:text-4xl font-black">
-            ShopRacks Services
+            <FadeIn> ShopRacks Services</FadeIn>
           </h1>
           <span className="h-1 w-20 bg-gray-200"></span>
           <p className="w-3/4 text-center">
-          ShopRacks, as a business solution leverages on technology to facilitate 
-          the core aspect of your online store. We provides a platform for you to 
-          easily document, send and track invoices. You can also manage and track 
-          inventories, orders and deliveries seemlessly
+            <SlideInP stiff={200}>
+              ShopRacks, as a business solution leverages on technology to facilitate 
+              the core aspect of your online store. We provides a platform for you to 
+              easily document, send and track invoices. You can also manage and track 
+              inventories, orders and deliveries seemlessly
+          </SlideInP>
           </p>
 
         </div>

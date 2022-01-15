@@ -2,6 +2,9 @@ import React from 'react';
 import Button from './button-component/Button';
 import { useTheme } from '../context/ThemeContext';
 import { Link } from 'react-router-dom';
+import FadeInUp from './animations/FadeInUp';
+import SlideIn from './animations/SlideIn';
+import FadeIn from './animations/FadeIn';
 
 const Showcase = () => {
   const { theme } = useTheme();
@@ -17,7 +20,7 @@ const Showcase = () => {
         }}></div>
     
     <div className="relative">
-      <div 
+      <div
         className="absolute top-0 left-3/4 ml-20 lg:ml-52 rounded-full z-10" 
         style={{backgroundColor:theme.primary.normal, width:"50%",paddingBottom:"50%"}}
       >
@@ -47,30 +50,34 @@ const Showcase = () => {
           <path d="M57.212 310.086L87.5673 310.287M72.2842 326.07L72.495 294.303L72.2842 326.07Z" stroke="#F15A25" strokeWidth="2" strokeMiterlimit="10"/>
 
         </svg>
-      </div>
+      </div> 
       <div
         className='container z-20 relative p-4 mx-auto md:px-20 md:flex md:justify-around md:items-center font-mulish'
         style={{ color: theme.textcolor.dark }}>
-        <div className='flex flex-col w-full md:w-1/2 px-10 sm:px-1 md:pr-20 pt-20'>
+        <div
+          className='relative flex flex-col w-full md:w-1/2 px-10 sm:px-1 md:pr-20 pt-20'
+        >
           <h1 className='text-3xl md:text-3xl xl:text-5xl font-bold w-full lg:w-4/5 py-5 md:py-1'>
-            Smartest way to meet your online retailing needs
-            with ease and speed
+            <FadeIn>
+              Smartest way to meet your online retailing needs
+              with ease and speed
+            </FadeIn>
           </h1>
-          <p className='md:text-xl pt-3 py-10'>
+          <FadeInUp className='relative md:text-xl pt-3 py-10' time={2}>
             ShopRacks is a software designed to efficiently
             document, track and manage inventories, orders
             and deliveries for online store owners.
-          </p>
+          </FadeInUp>
           <p>
             <Link to="/signup">
-              <Button text='GET STARTED' size='min-w-0' background />
+              <Button text='GET STARTED' size='min-w-0' background time={2.5}/>
             </Link>
           </p>
         </div>
 
-        <div className='w-full md:w-1/2 pt-20'>
+        <SlideIn axis="x" className='w-full md:w-1/2 pt-20'>
           <img src='/img/pic-1.svg' alt='Showcase-img' />
-        </div>
+        </SlideIn>
       </div>
 </div>
 </div>
