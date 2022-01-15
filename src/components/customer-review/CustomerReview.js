@@ -11,7 +11,7 @@ const CustomerReview = () => {
             <div
                 className={
                     `w-11/12 lg:w-9/12 p-10 lg:p-20 rounded-3xl bg-gradient-to-t 
-                    from-indigo-900 via-purple-800 to-pink-500 relative`
+                    from-indigo-900 via-purple-800 to-pink-500 relative `
                 }
                 style={{ color: theme.textcolor.light }}
             >

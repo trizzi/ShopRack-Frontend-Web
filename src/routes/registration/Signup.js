@@ -2,9 +2,17 @@ import React,{useState, useEffect, useRef} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthUserContext';
 
 const Signup = () => {
   const { theme } = useTheme();
+  const { registerUser} = useAuth();
+
+  const fname = useRef(null);
+  const lname = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+
   const [loading, setLoading] = useState(false)
 
   const signup = useRef(null);
@@ -12,6 +20,13 @@ const Signup = () => {
   const signupHandler = (e)=>{
     e.preventDefault();
     setLoading(true);
+
+    registerUser(
+      fname.current.value, 
+      lname.current.value,
+      email.current.value,
+      password.current.value
+    )
   }
 
   useEffect(()=>{
@@ -72,7 +87,14 @@ const Signup = () => {
             style={{
               border: `1px solid ${theme.primary.dark}`,
             }}>
-            <input type='text' placeholder='Company Name' />
+            <input type='text' placeholder='First Name' ref={fname} />
+          </div>
+          <div
+            className='p-4 rounded-full mt-5'
+            style={{
+              border: `1px solid ${theme.primary.dark}`,
+            }}>
+            <input type='text' placeholder='Last Name' ref={lname} />
           </div>
           <div
             className='p-4 rounded-full mt-5'
@@ -82,6 +104,7 @@ const Signup = () => {
             <input
               type='text'
               placeholder='Email Address'
+              ref={email}
             />
           </div>
           <div
@@ -89,15 +112,13 @@ const Signup = () => {
             style={{
               border: `1px solid ${theme.primary.dark}`,
             }}>
-            <input type='text' placeholder='Password' />
+            <input 
+              type='text' 
+              placeholder='Password' 
+              ref={password}
+            />
           </div>
-          <div
-            className='p-4 rounded-full mt-5'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
-            <input type='text' placeholder='Phone Number' />
-          </div>
+          
           <div className='flex justify-around items-center py-5'>
             <input type='checkbox' />
             <p className='pl-2'>

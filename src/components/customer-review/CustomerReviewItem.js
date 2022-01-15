@@ -1,12 +1,12 @@
 import React from "react";
-
+import FadeInUp from "../animations/FadeInUp";
 
 const CustomerReviewItem = ({
     reviewdata: { image, name, occupation, review },
 }) => {
     
     return (
-        <div className="md:flex pt-10 items-center relative">
+        <FadeInUp className="md:flex pt-10 items-center relative">
             <div className="flex w-full md:w-1/2 space-x-4">
                 <img
                     src={image}
@@ -35,7 +35,7 @@ const CustomerReviewItem = ({
                     <path d="M161.048 45.0993C158.866 43.8438 156.079 44.5954 154.823 46.7781C153.568 48.9607 154.319 51.7478 156.502 53.0033C158.684 54.2588 161.472 53.5072 162.727 51.3246C163.983 49.142 163.231 46.3548 161.048 45.0993Z" fill="#F25B26"/>   
                 </svg>
             </div>
-        </div>
+        </FadeInUp>
     );
 };
 
