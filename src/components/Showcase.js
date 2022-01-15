@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from './button-component/Button';
-
 import { useTheme } from '../context/ThemeContext';
 import { Link } from 'react-router-dom';
 
@@ -70,11 +69,7 @@ const Showcase = () => {
         </div>
 
         <div className='w-full md:w-1/2 pt-20'>
-          <img
-            //   className='w-100 h-100 p-6'
-            src='/img/pic-1.svg'
-            alt='Showcase-img'
-          />
+          <img src='/img/pic-1.svg' alt='Showcase-img' />
         </div>
       </div>
     </div>
