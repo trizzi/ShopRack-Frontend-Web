@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "../../context/ThemeContext";
+
 
 const CustomerReviewItem = ({
     reviewdata: { image, name, occupation, review },
