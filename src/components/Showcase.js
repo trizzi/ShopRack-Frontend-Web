@@ -72,7 +72,7 @@ const Showcase = () => {
           <img src='/img/pic-1.svg' alt='Showcase-img' />
         </div>
       </div>
-    </div>
+    
   );
 };
 
