@@ -12,11 +12,13 @@ import Navbar from './components/Navbar';
 import Dropdown from './components/Dropdown';
 import Services from './components/services/Services';
 import Showcase from './components/Showcase';
-import Signin from './components/registration/Signin';
-import Signup from './components/registration/Signup';
+import Signin from './routes/registration/Signin';
+import Signup from './routes/registration/Signup';
 import { ThemeContextProvider } from './context/ThemeContext';
+import { AuthUserContextProvider } from './context/AuthUserContext';
 
 function App() {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -61,6 +63,7 @@ function App() {
         </Router>
       </div>
     </ThemeContextProvider>
+
   );
 }
 

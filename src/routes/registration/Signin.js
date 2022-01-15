@@ -1,10 +1,30 @@
-import React from 'react';
-import Button from '../button-component/Button';
+import React,{useState, useEffect, useRef} from 'react';
+import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
 
 const Signin = () => {
+  const signin = useRef(null);
   const { theme } = useTheme();
+  const [loading, setLoading] = useState(false)
+
+  const signinHandler = (e)=>{
+    e.preventDefault();
+    setLoading(true);
+  }
+
+  useEffect(()=>{
+    const ev = signin.current
+    ev.addEventListener("click",signinHandler)
+
+    return ()=>{
+      if(ev !== null){
+        ev.removeEventListener("click",signinHandler);
+      }  
+      setLoading(false)
+    }
+  },[])
+
   return (
     <div className='h-screen flex justify-between items-center'>
       <div
@@ -47,9 +67,9 @@ const Signin = () => {
         </div>
         <form action='' className='flex flex-col'>
           <div
-            className='pt-10 '
+            className='p-4 rounded-full'
             style={{
-              border: theme.primary.dark,
+              border: `1px solid ${theme.primary.dark}`,
             }}>
             <input
               type='text'
@@ -57,22 +77,28 @@ const Signin = () => {
             />
           </div>
           <div
-            className='py-10'
+            className='p-4 rounded-full my-5'
             style={{
-              border: theme.primary.dark,
+              border: `1px solid ${theme.primary.dark}`,
             }}>
             <input type='text' placeholder='Password' />
           </div>
 
-          <Button text='SIGN IN' background />
+          <Button 
+            text={loading ? 'Loading...' : 'SIGN IN'} 
+            background
+            disable={loading}
+            refs={signin}
+          />
+
           <p className='px-7 py-3'>
-            Don't have a Shopracks account?
+            Don't have a Shopracks account? 
             <Link
               to='/signup'
               style={{
                 color: theme.primary.dark,
               }}>
-              Sign Up
+               &nbsp; Sign Up
             </Link>
           </p>
           <p className='text-center py-7'>
