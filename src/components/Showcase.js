@@ -8,9 +8,15 @@ const Showcase = () => {
   const { theme } = useTheme();
 
   return (
-
+    <div className='relative'>
+      <div
+        className='absolute top-0 left-3/4 ml-20 lg:ml-52 rounded-full z-10'
+        style={{
+          backgroundColor: theme.primary.normal,
+          width: '50%',
+          paddingBottom: '50%',
+        }}></div>
     
-
     <div className="relative">
       <div 
         className="absolute top-0 left-3/4 ml-20 lg:ml-52 rounded-full z-10" 
@@ -40,15 +46,14 @@ const Showcase = () => {
           <path d="M57.212 310.086L87.5673 310.287M72.2842 326.07L72.495 294.303L72.2842 326.07Z" stroke="#012595" strokeMiterlimit="10"/>
           <path d="M-15.1738 309.606L15.1815 309.807M-0.101524 325.59L0.109265 293.823L-0.101524 325.59Z" stroke="#F15A25" strokeWidth="2" strokeMiterlimit="10"/>
           <path d="M57.212 310.086L87.5673 310.287M72.2842 326.07L72.495 294.303L72.2842 326.07Z" stroke="#F15A25" strokeWidth="2" strokeMiterlimit="10"/>
+
         </svg>
       </div>
       <div
         className='container z-20 relative p-4 mx-auto md:px-20 md:flex md:justify-around md:items-center font-mulish'
-        style={{color:theme.textcolor.dark}}
-      >
-        <div className="flex flex-col w-full md:w-1/2 px-10 sm:px-1 md:pr-20 pt-20">
-          <h1 className="text-3xl md:text-3xl xl:text-5xl font-bold w-full lg:w-4/5 py-5 md:py-1">
-
+        style={{ color: theme.textcolor.dark }}>
+        <div className='flex flex-col w-full md:w-1/2 px-10 sm:px-1 md:pr-20 pt-20'>
+          <h1 className='text-3xl md:text-3xl xl:text-5xl font-bold w-full lg:w-4/5 py-5 md:py-1'>
             Smartest way to meet your online retailing needs
             with ease and speed
           </h1>

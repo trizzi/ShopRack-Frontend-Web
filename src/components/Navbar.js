@@ -3,7 +3,7 @@ import Button from './button-component/Button';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   const { theme } = useTheme();
   return (
     <nav
@@ -17,7 +17,9 @@ const Navbar = () => {
             alt='Logo'
           />
         </Link>
-        <div className='px-8 cursor-pointer md:hidden'>
+        <div
+          className='px-8 cursor-pointer md:hidden'
+          onClick={toggle}>
           <i className='fas fa-bars'></i>
         </div>
         <div className='pr-8 md:flex hidden space-x-5 lg:space-x-16 items-center'>
