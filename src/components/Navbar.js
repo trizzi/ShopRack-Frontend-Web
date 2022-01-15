@@ -28,7 +28,7 @@ const Navbar = ({ toggle }) => {
           <Link to='#' className='whitespace-nowrap'>
             CONTACT US
           </Link>
-          <Link to='#'>BLOG</Link>
+          <a href='https://dev-shopracks.pantheonsite.io'>BLOG</a>
           <Link to='#'>ABOUT</Link>
 
           <Link to='/signup'>

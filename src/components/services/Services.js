@@ -5,7 +5,6 @@ import Button from '../button-component/Button';
 import {useTheme} from '../../context/ThemeContext';
 import FadeIn from '../animations/FadeIn';
 import SlideInP from '../animations/SlideInP';
-import SlideIn from '../animations/SlideIn';
 
 
 const Services = () => {

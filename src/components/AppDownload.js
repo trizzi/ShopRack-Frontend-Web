@@ -22,7 +22,7 @@ const AppDownload = () => {
                         Mobile App Download
                     </h2>
                     <p className="w-full md:pr-20">
-                        ShopRacks is an online plateform that gives you an edge
+                        ShopRacks is an online platform that gives you an edge
                         in the day-to-day running of your businesses. It is a
                         tracking and management app ideal for documenting
                         inventories and invoices. You can also keep track and
