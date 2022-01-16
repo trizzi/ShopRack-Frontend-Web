@@ -85,41 +85,45 @@ const Signup = () => {
           <div>
             <input 
               type='text' 
-              placeholder='First Name' 
+              placeholder='First Name..' 
               ref={fname} 
-              className='p-4 rounded-full focus:border-0'
+              className='p-4 rounded-full outline-none w-full'
               style={{
                 border: `1px solid ${theme.primary.dark}`,
               }}
             />
           </div>
-          <div
-            className='p-4 rounded-full mt-5'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
-            <input type='text' placeholder='Last Name' ref={lname} />
+          <div>
+            <input 
+              type='text' 
+              placeholder='Last Name' 
+              ref={lname} 
+              className='p-4 mt-5 rounded-full outline-none w-full'
+              style={{
+                border: `1px solid ${theme.primary.dark}`,
+              }}
+            />
           </div>
-          <div
-            className='p-4 rounded-full mt-5'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
+          <div>
             <input
               type='text'
               placeholder='Email Address'
               ref={email}
+              className='p-4 mt-5 rounded-full outline-none w-full'
+              style={{
+                border: `1px solid ${theme.primary.dark}`,
+              }}
             />
           </div>
-          <div
-            className='p-4 rounded-full mt-5'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
+          <div>
             <input 
               type='text' 
               placeholder='Password' 
               ref={password}
+              className='p-4 mt-5 focus:border-2 rounded-full outline-none w-full'
+              style={{
+                border: `1px solid ${theme.primary.dark}`,
+              }}
             />
           </div>
           
