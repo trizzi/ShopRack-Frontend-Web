@@ -62,26 +62,29 @@ const Signin = () => {
       </div>
 
       <div className='flex flex-col justify-center items-center w-full md:w-2/4 px-8 '>
-        <div className='pb-5'>
+        <div className=''>
           <img src='/img/shoprack-logo.svg' alt='' />
         </div>
         <form action='' className='flex flex-col'>
-          <div
-            className='p-4 rounded-full'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
+          <div>
             <input
               type='text'
               placeholder='Email Address'
+              className='p-4 mt-5 focus:border-2 rounded-full outline-none w-full'
+              style={{
+                border: `1px solid ${theme.primary.dark}`,
+              }}
             />
           </div>
-          <div
-            className='p-4 rounded-full my-5'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
-            <input type='text' placeholder='Password' />
+          <div>
+            <input 
+              type='text' 
+              placeholder='Password' 
+              className='p-4 my-5 focus:border-2 rounded-full outline-none w-full'
+              style={{
+                border: `1px solid ${theme.primary.dark}`,
+              }}
+            />
           </div>
 
           <Button 

@@ -12,8 +12,9 @@ const Button = ({ time,text, background, size,refs,disable}) => {
 
   return (
     <motion.button 
-      className={`rounded-full py-2 lg:py-2 px-5 whitespace-nowrap 
-        ${size && size} ${disable && "opacity-40"}`
+      className={`
+        rounded-full py-2 lg:py-2 px-5 whitespace-nowrap 
+        ${size && size} ${disable && "opacity-40 cursor-wait"}`
       }
       style={{
         backgroundColor:`${background ? theme.primary.normal : theme.transparent}`,
