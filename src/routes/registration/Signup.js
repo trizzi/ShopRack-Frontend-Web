@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef} from 'react';
+import React,{useState, useEffect, useRef, useCallback} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const Signup = () => {
 
   const signup = useRef(null);
 
-  const signupHandler = (e)=>{
+  const signupHandler = useCallback((e)=>{
     e.preventDefault();
     setLoading(true);
 
@@ -27,7 +27,7 @@ const Signup = () => {
       email.current.value,
       password.current.value
     )
-  }
+  },[fname,lname,email,password])
 
   useEffect(()=>{
     const button = signup.current
