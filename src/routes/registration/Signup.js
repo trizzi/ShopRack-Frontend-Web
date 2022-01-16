@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef} from 'react';
+import React,{useState, useEffect, useRef, useCallback} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const Signup = () => {
 
   const signup = useRef(null);
 
-  const signupHandler = (e)=>{
+  const signupHandler = useCallback((e)=>{
     e.preventDefault();
     setLoading(true);
 
@@ -27,7 +27,7 @@ const Signup = () => {
       email.current.value,
       password.current.value
     )
-  }
+  },[fname,lname,email,password, registerUser])
 
   useEffect(()=>{
     const button = signup.current
@@ -39,7 +39,7 @@ const Signup = () => {
       }  
       setLoading(false)
     }
-  },[])
+  },[signupHandler])
 
   return (
     <div className='h-screen flex justify-between items-center'>
@@ -82,12 +82,16 @@ const Signup = () => {
           <img src='/img/shoprack-logo.svg' alt='' />
         </div>
         <form action='' className='flex flex-col'>
-          <div
-            className='p-4 rounded-full'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
-            <input type='text' placeholder='First Name' ref={fname} />
+          <div>
+            <input 
+              type='text' 
+              placeholder='First Name' 
+              ref={fname} 
+              className='p-4 rounded-full focus:border-0'
+              style={{
+                border: `1px solid ${theme.primary.dark}`,
+              }}
+            />
           </div>
           <div
             className='p-4 rounded-full mt-5'
