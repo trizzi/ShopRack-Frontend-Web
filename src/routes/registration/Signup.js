@@ -6,7 +6,7 @@ import { useAuth } from '../../context/AuthUserContext';
 
 const Signup = () => {
   const { theme } = useTheme();
-  const { loading,registerUser} = useAuth();
+  const { loading,message,dispatch,registerUser} = useAuth();
 
   const fname = useRef(null);
   const lname = useRef(null);
@@ -48,12 +48,12 @@ const Signup = () => {
         {/* <div className=' pl-0'>
           <img src='/img/shoprack-inventory.svg' alt='' />
         </div> */}
-        <div className='  px-10 pt-32 '>
-          <div className='pl-64'>
+        <div className='px-10 pt-32 '>
+          <div className='px-20'>
             <img src='/img/white-quotes.svg' alt='' />
           </div>
           <div className='px-20'>
-            <p className='pt-14 pb-5'>
+            <p className='pt-14 pb-5 text-center'>
               ShopRacks, as a business solution leverages on
               technology to facilitate the core aspect of
               your online store. We provides a platform for
@@ -61,11 +61,11 @@ const Signup = () => {
               invoices. You can also manage and track
               inventories, orders and deliveries seemlessly
             </p>
-            <p className='pb-5 pl-36'>Shopracks, Nigeria</p>
-            <p className='pt-48 pl-28'>
+            <p className='pb-5 text-center'>Shopracks, Nigeria</p>
+            <p className='pt-48 text-center'>
               OTHER FINANCE PRODUCTS
             </p>
-            <div className='flex justify-around pt-8'>
+            <div className='flex justify-between pt-8'>
               <p>Shopracks Subscriptions</p>
               <p>Shopracks Expenses</p>
             </div>
@@ -73,7 +73,14 @@ const Signup = () => {
         </div>
       </div>
 
-      <div className='flex flex-col justify-center items-center w-full md:w-2/4 px-8 '>
+      <div className='relative flex flex-col justify-center items-center w-full md:w-2/4 px-8 '>
+      
+        {message?.success && (
+          <p className="bg-green-600 text-white p-10 absolute top-0 -mt-20 w-full text-center">
+            {message.success}
+          </p>
+        )}
+        
         <div className='pb-5'>
           <img src='/img/shoprack-logo.svg' alt='' />
         </div>
@@ -103,9 +110,15 @@ const Signup = () => {
           <div>
             <input
               type='text'
-              placeholder='Email Address'
+              placeholder={message?.emailError ? message.emailError : "Email Address"}
               ref={email}
-              className='p-4 mt-5 rounded-full outline-none w-full'
+              className={
+                `
+                  p-4 mt-5 focus:border-2 rounded-full w-full
+                  ${message?.emailError ? "text-red-600 outline-dashed outline-red-400 outline-2": "outline-none"}
+                `
+              }
+              onFocus={()=>dispatch({type:"emailError",payload:""})}
               style={{
                 border: `1px solid ${theme.primary.dark}`,
               }}
@@ -114,9 +127,15 @@ const Signup = () => {
           <div>
             <input 
               type='text' 
-              placeholder='Password' 
+              placeholder={message?.passwordError ? message.passwordError : "Password"}
               ref={password}
-              className='p-4 mt-5 focus:border-2 rounded-full outline-none w-full'
+              onFocus={()=>dispatch({type:"passwordError",payload:""})}
+              className={
+                `
+                  p-4 mt-5 focus:border-2 rounded-full w-full
+                  ${message?.passwordError ? "text-red-600 outline-dashed outline-red-400 outline-2": "outline-none"}
+                `
+              }
               style={{
                 border: `1px solid ${theme.primary.dark}`,
               }}

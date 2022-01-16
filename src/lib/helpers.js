@@ -6,18 +6,13 @@ export const getBlogPost = async () => {
 }
 
 export const regUser = async (user) =>{
-    console.log(user)
     const data = await JSON.stringify(user)
-    console.log(data)
-    axios.post("https://shoprackapi.herokuapp.com/api/v1/users/create",data,{
+    
+    const res = await axios.post("https://shoprackapi.herokuapp.com/api/v1/users/create/",data,{
         headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json"
         }
-    }).then((res)=>{
-        console.log(res,";;;;;;;;;;;;;;;;")
-        return res;
-    }).catch(err=>{
-        console.log(err,":::::::::::::::::")
-        return err
     })
+
+    return res;
 }
