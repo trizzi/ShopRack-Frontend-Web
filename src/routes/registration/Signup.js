@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef, useCallback} from 'react';
+import React,{useEffect, useRef, useCallback} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
