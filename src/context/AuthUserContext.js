@@ -6,6 +6,7 @@ export const useAuth = ()=> useContext(AuthUserContext)
 
 export const AuthUserContextProvider = ({children}) => {
     const [authUser, setauthUser] = useState({});
+    const [loading, setLoading] = useState(false)
 
     const logout = ()=>{
         setauthUser({})
@@ -15,10 +16,11 @@ export const AuthUserContextProvider = ({children}) => {
 
     }
 
-    const registerUser = async ({firstname, lastname,email, password})=>{
+    const registerUser = async (firstname, lastname,email, password)=>{
+        setLoading(true)
         const user = {
-            first_name: firstname,
-            last_name: lastname,
+            firstname: firstname,
+            lastname: lastname,
             email: email,
             password: password
         }
@@ -27,6 +29,7 @@ export const AuthUserContextProvider = ({children}) => {
         if(res?.email){
             setauthUser(user);
         }
+        setLoading(false)
     }
 
     const openGoogleLoginPage = useCallback(() => {
@@ -52,7 +55,7 @@ export const AuthUserContextProvider = ({children}) => {
     }, []);
 
     return (
-        <AuthUserContext.Provider value={{authUser, registerUser, login, logout, openGoogleLoginPage}}>
+        <AuthUserContext.Provider value={{authUser,loading, registerUser, login, logout, openGoogleLoginPage}}>
             {children}
         </AuthUserContext.Provider>
     )

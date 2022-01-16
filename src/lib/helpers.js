@@ -6,7 +6,9 @@ export const getBlogPost = async () => {
 }
 
 export const regUser = async (user) =>{
-    const data = JSON.stringify(user)
+    console.log(user)
+    const data = await JSON.stringify(user)
+    console.log(data)
     axios.post("https://shoprackapi.herokuapp.com/api/v1/users/create",data,{
         headers: {
             "Content-type": "application/json; charset=UTF-8"

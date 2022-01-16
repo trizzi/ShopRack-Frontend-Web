@@ -6,20 +6,17 @@ import { useAuth } from '../../context/AuthUserContext';
 
 const Signup = () => {
   const { theme } = useTheme();
-  const { registerUser} = useAuth();
+  const { loading,registerUser} = useAuth();
 
   const fname = useRef(null);
   const lname = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
-  const [loading, setLoading] = useState(false)
-
   const signup = useRef(null);
 
   const signupHandler = useCallback((e)=>{
     e.preventDefault();
-    setLoading(true);
 
     registerUser(
       fname.current.value, 
@@ -37,7 +34,6 @@ const Signup = () => {
       if(button !== null){
         button.removeEventListener("click",signupHandler);
       }  
-      setLoading(false)
     }
   },[signupHandler])
 
