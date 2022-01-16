@@ -39,7 +39,7 @@ const Signup = () => {
       }  
       setLoading(false)
     }
-  },[])
+  },[signupHandler])
 
   return (
     <div className='h-screen flex justify-between items-center'>
@@ -82,12 +82,16 @@ const Signup = () => {
           <img src='/img/shoprack-logo.svg' alt='' />
         </div>
         <form action='' className='flex flex-col'>
-          <div
-            className='p-4 rounded-full'
-            style={{
-              border: `1px solid ${theme.primary.dark}`,
-            }}>
-            <input type='text' placeholder='First Name' ref={fname} />
+          <div>
+            <input 
+              type='text' 
+              placeholder='First Name' 
+              ref={fname} 
+              className='p-4 rounded-full focus:border-0'
+              style={{
+                border: `1px solid ${theme.primary.dark}`,
+              }}
+            />
           </div>
           <div
             className='p-4 rounded-full mt-5'

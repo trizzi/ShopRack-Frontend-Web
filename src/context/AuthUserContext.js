@@ -23,7 +23,7 @@ export const AuthUserContextProvider = ({children}) => {
             password: password
         }
 
-        const res = regUser(user);
+        const res = await regUser(user);
         if(res?.email){
             setauthUser(user);
         }
