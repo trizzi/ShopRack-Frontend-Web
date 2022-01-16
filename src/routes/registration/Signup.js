@@ -27,7 +27,7 @@ const Signup = () => {
       email.current.value,
       password.current.value
     )
-  },[fname,lname,email,password])
+  },[fname,lname,email,password, registerUser])
 
   useEffect(()=>{
     const button = signup.current
