@@ -1,16 +1,26 @@
 import React,{useState, useEffect, useRef} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthUserContext';
 
 const Signin = () => {
   const signin = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const navigate = useNavigate();
+
   const { theme } = useTheme();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
+  const {login} = useAuth();
 
   const signinHandler = (e)=>{
     e.preventDefault();
     setLoading(true);
+    login(email.current.value,password.current.value);
+    navigate("/dashboard")
   }
 
   useEffect(()=>{
@@ -68,7 +78,8 @@ const Signin = () => {
         <form action='' className='flex flex-col'>
           <div>
             <input
-              type='text'
+              type='email'
+              ref={email}
               placeholder='Email Address'
               className='p-4 mt-5 focus:border-2 rounded-full outline-none w-full'
               style={{
@@ -78,7 +89,8 @@ const Signin = () => {
           </div>
           <div>
             <input 
-              type='text' 
+              type='password'
+              ref={password} 
               placeholder='Password' 
               className='p-4 my-5 focus:border-2 rounded-full outline-none w-full'
               style={{

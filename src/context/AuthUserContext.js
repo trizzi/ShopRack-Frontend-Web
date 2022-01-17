@@ -35,7 +35,7 @@ export const AuthUserContextProvider = ({children}) => {
     }
 
     const login = (email,password)=>{
-
+        setauthUser({email,password})
     }
 
     const messageUpdate = (text)=>{

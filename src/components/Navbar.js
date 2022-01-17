@@ -1,11 +1,39 @@
-import React from 'react';
+import React,{useEffect,useRef} from 'react';
 import Button from './button-component/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import SlideDown from './animations/SlideDown';
+import { useAuth } from '../context/AuthUserContext';
 
 const Navbar = ({ toggle }) => {
   const { theme } = useTheme();
+  const {authUser, logout} = useAuth();
+
+  const navigate = useNavigate();
+
+  const logoutButton = useRef(null)
+
+  const handler = (e)=>{
+    e.preventDefault();
+    if(authUser?.email){
+      logout()
+      navigate("/")
+    }else{
+      navigate("/signin")
+    }
+  }
+
+  useEffect(()=>{
+    const ev = logoutButton.current
+    ev.addEventListener("click",handler)
+
+    return ()=>{
+      if(ev !== null){
+        ev.removeEventListener("click",handler);
+      }  
+    }
+  },[])
+
   return (
     <nav
       role='navigation'
@@ -36,7 +64,7 @@ const Navbar = ({ toggle }) => {
           </Link>
 
           <Link to='/signin'>
-            <Button text='LOGIN' />
+            <Button text={authUser?.email ? 'LOGOUT' : 'LOGIN'} refs={logoutButton} />
           </Link>
         </div>
       </SlideDown>

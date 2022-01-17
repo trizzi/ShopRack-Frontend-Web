@@ -17,6 +17,7 @@ import Signup from './routes/registration/Signup';
 import { ThemeContextProvider } from './context/ThemeContext';
 import { AuthUserContextProvider } from './context/AuthUserContext';
 import Dashboard from './routes/Dashboard';
+import AuthCheck from './HOC/AuthCheck';
 
 function App() {
 
@@ -64,7 +65,7 @@ function App() {
               <Route 
                 exact
                 path="/dashboard" 
-                element={<Dashboard />} 
+                element={<AuthCheck component={Dashboard} />} 
               />
             </Routes>
           </Router>
