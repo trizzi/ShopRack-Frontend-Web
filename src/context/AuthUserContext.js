@@ -34,8 +34,16 @@ export const AuthUserContextProvider = ({children}) => {
         setauthUser({})
     }
 
-    const login = (email,password)=>{
-        setauthUser({email,password})
+    const login = (user, afterSuccessfulLogin)=>{
+        setLoading(true)
+        return new Promise((res)=>{
+            setTimeout(()=>{
+                setauthUser(user)
+                afterSuccessfulLogin()
+                setLoading(false)
+                res("")
+            },2000)
+        })
     }
 
     const messageUpdate = (text)=>{

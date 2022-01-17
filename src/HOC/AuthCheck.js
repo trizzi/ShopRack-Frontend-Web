@@ -1,12 +1,17 @@
 import React from 'react';
+import { Navigate, useLocation } from 'react-router';
 import {useAuth } from "../context/AuthUserContext";
-import Signin from '../routes/registration/Signin';
 
 function AuthCheck({component: Component}) {
 
     const {authUser} = useAuth();
+    const location = useLocation();
 
-    return authUser?.email ? <Component /> : <Signin />
+    if(!authUser.email){
+        return <Navigate to="/signin" state={{ from: location }} replace /> 
+    }
+    
+    return <Component />;
     
 }
 

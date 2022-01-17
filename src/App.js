@@ -67,6 +67,15 @@ function App() {
                 path="/dashboard" 
                 element={<AuthCheck component={Dashboard} />} 
               />
+              <Route
+                path="*"
+                element={
+                  <main className="flex flex-col h-screen items-center justify-center container text-red-400 font-black">
+                    <h1 className="text-4xl">404! Not found</h1>
+                    <p className="text-2xl">Check the url! Are you sure you are not lost?</p>
+                  </main>
+                }
+              />
             </Routes>
           </Router>
         </div>

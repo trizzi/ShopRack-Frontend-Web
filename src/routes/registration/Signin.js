@@ -1,37 +1,45 @@
-import React,{useState, useEffect, useRef,useCallback} from 'react';
+import React,{useEffect, useRef,useCallback} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthUserContext';
 
 const Signin = () => {
-  const signin = useRef(null);
+  const signinButton = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
+  let location = useLocation();
   const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
 
   const { theme } = useTheme();
-  const [loading, setLoading] = useState(false);
 
-  const {login} = useAuth();
+  const { authUser,login,loading,message,dispatch} = useAuth();
 
   const signinHandler = useCallback((e)=>{
     e.preventDefault();
-    setLoading(true);
-    login(email.current.value,password.current.value);
-    navigate("/dashboard")
-  },[navigate, login, setLoading])
+
+    const user = {
+      email:email.current.value,
+      password:password.current.value
+    }
+    
+    login(user, () =>{
+      dispatch({type:"success",payload:"Login Successful"})
+      navigate(from, { replace: true });
+    })
+
+  },[navigate, login,dispatch,authUser,email,password])
 
   useEffect(()=>{
-    const button = signin.current
+    const button = signinButton.current
     button.addEventListener("click",signinHandler)
 
     return ()=>{
       if(button !== null){
         button.removeEventListener("click",signinHandler);
-      }  
-      setLoading(false)
+      }
     }
   },[signinHandler])
 
@@ -103,7 +111,7 @@ const Signin = () => {
             text={loading ? 'Loading...' : 'SIGN IN'} 
             background
             disable={loading}
-            refs={signin}
+            refs={signinButton}
           />
 
           <p className='px-7 py-3'>

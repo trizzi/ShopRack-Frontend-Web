@@ -24,12 +24,12 @@ const Navbar = ({ toggle }) => {
   },[authUser,logout,navigate])
 
   useEffect(()=>{
-    const ev = logoutButton.current
-    ev.addEventListener("click",handler)
+    const button = logoutButton.current
+    button.addEventListener("click",handler)
 
     return ()=>{
-      if(ev !== null){
-        ev.removeEventListener("click",handler);
+      if(button !== null){
+        button.removeEventListener("click",handler);
       }  
     }
   },[handler])
