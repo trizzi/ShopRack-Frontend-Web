@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef} from 'react';
+import React,{useState, useEffect, useRef,useCallback} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,24 +16,24 @@ const Signin = () => {
 
   const {login} = useAuth();
 
-  const signinHandler = (e)=>{
+  const signinHandler = useCallback((e)=>{
     e.preventDefault();
     setLoading(true);
     login(email.current.value,password.current.value);
     navigate("/dashboard")
-  }
+  },[navigate, login, setLoading])
 
   useEffect(()=>{
-    const ev = signin.current
-    ev.addEventListener("click",signinHandler)
+    const button = signin.current
+    button.addEventListener("click",signinHandler)
 
     return ()=>{
-      if(ev !== null){
-        ev.removeEventListener("click",signinHandler);
+      if(button !== null){
+        button.removeEventListener("click",signinHandler);
       }  
       setLoading(false)
     }
-  },[])
+  },[signinHandler])
 
   return (
     <div className='h-screen flex justify-between items-center'>

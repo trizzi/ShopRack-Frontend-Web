@@ -1,4 +1,4 @@
-import React,{useEffect,useRef} from 'react';
+import React,{useEffect,useRef, useCallback} from 'react';
 import Button from './button-component/Button';
 import { Link, useNavigate} from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
@@ -13,7 +13,7 @@ const Navbar = ({ toggle }) => {
 
   const logoutButton = useRef(null)
 
-  const handler = (e)=>{
+  const handler = useCallback((e)=>{
     e.preventDefault();
     if(authUser?.email){
       logout()
@@ -21,7 +21,7 @@ const Navbar = ({ toggle }) => {
     }else{
       navigate("/signin")
     }
-  }
+  },[authUser,logout,navigate])
 
   useEffect(()=>{
     const ev = logoutButton.current
@@ -32,7 +32,7 @@ const Navbar = ({ toggle }) => {
         ev.removeEventListener("click",handler);
       }  
     }
-  },[])
+  },[handler])
 
   return (
     <nav

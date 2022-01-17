@@ -62,10 +62,11 @@ export const AuthUserContextProvider = ({children}) => {
             }
         })
         .catch(err=>{
-            if(err.response.data.email.length > 0){
+            console.log(err.response)
+            if(err.response.data?.email && err.response.data.email.length > 0){
                 dispatch({type:"emailError",payload:err.response.data.email[0]})
             }
-            if(err.response.data.password.length > 0){
+            if(err.response.data?.password && err.response.data.password.length > 0){
                 dispatch({type:"passwordError",payload:err.response.data.password[0]})
             }
             return err

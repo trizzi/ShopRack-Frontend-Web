@@ -96,28 +96,29 @@ const Signup = () => {
               }}
             />
           </div>
-          <div>
+          <div class="relative flex flex-col">
             <input 
               type='text' 
-              placeholder='Last Name' 
+              placeholder='Enter email'
               ref={lname} 
-              className='p-4 mt-5 rounded-full outline-none w-full'
+              className='p-4 mt-5 rounded-full outline-none w-full pear placeholder:'
               style={{
                 border: `1px solid ${theme.primary.dark}`,
               }}
             />
+            <label htmlFor='name' className="absolute top-10 left-4 pear-placeholder-shown:text-white" >
+              Last Name
+            </label>
           </div>
           <div>
             <input
-              type='text'
+              type='email'
               placeholder={message?.emailError ? message.emailError : "Email Address"}
               ref={email}
-              className={
-                `
-                  p-4 mt-5 focus:border-2 rounded-full w-full
-                  ${message?.emailError ? "text-red-600 outline-dashed outline-red-400 outline-2": "outline-none"}
-                `
-              }
+              className={`
+                  p-4 mt-5 focus:border-2 rounded-full w-full focus:outline-none
+                  ${message?.emailError.length > 0 ? "invalid:border-pink-500 invalid:text-pink-600": ""}
+              `}
               onFocus={()=>dispatch({type:"emailError",payload:""})}
               style={{
                 border: `1px solid ${theme.primary.dark}`,
@@ -126,14 +127,14 @@ const Signup = () => {
           </div>
           <div>
             <input 
-              type='text' 
+              type='password' 
               placeholder={message?.passwordError ? message.passwordError : "Password"}
               ref={password}
               onFocus={()=>dispatch({type:"passwordError",payload:""})}
               className={
                 `
                   p-4 mt-5 focus:border-2 rounded-full w-full
-                  ${message?.passwordError ? "text-red-600 outline-dashed outline-red-400 outline-2": "outline-none"}
+                  ${message?.passwordError ? "text-red-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500": "outline-none"}
                 `
               }
               style={{
