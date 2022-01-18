@@ -13,7 +13,7 @@ const Button = ({ time,text, background, size,refs,disable}) => {
   return (
     <motion.button 
       className={`
-        rounded-full py-2 lg:py-2 px-5 whitespace-nowrap 
+        rounded-full py-2 lg:py-2 px-5 whitespace-nowrap hover:ring-pink-800
         ${size && size} ${disable && "opacity-40 cursor-wait"}`
       }
       style={{

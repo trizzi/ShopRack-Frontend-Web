@@ -1,21 +1,18 @@
 import React from 'react';
-import {Route, useNavigate} from "react-router-dom";
+import { Navigate, useLocation } from 'react-router';
 import {useAuth } from "../context/AuthUserContext";
-import Signin from '../routes/registration/Signin';
 
-function AuthCheck({component: Component, ...rest}) {
+function AuthCheck({component: Component}) {
 
     const {authUser} = useAuth();
-    const navigate = useNavigate();
+    const location = useLocation();
 
-    return (
-        <Route
-            {...rest}
-            element={props=>{
-                return authUser?.email ? <Signin /> : <Component {...props} />
-            }}
-        />
-    )
+    if(!authUser.email){
+        return <Navigate to="/signin" state={{ from: location }} replace /> 
+    }
+    
+    return <Component />;
+    
 }
 
 export default AuthCheck;

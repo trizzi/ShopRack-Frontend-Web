@@ -16,8 +16,9 @@ function Dashboard() {
         <div>
             <Navbar toggle={toggle} />
             
-            <div className="w-full">
-                Dashboard area for {authUser && authUser.email}
+            <div className="w-full h-screen flex justify-center items-center text-3xl bg-indigo-400 font-bold">
+                Dashboard area for Email:
+                <span className="text-white"> &nbsp;&nbsp;{authUser && authUser.email} </span> 
             </div>
             
         </div>

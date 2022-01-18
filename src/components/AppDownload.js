@@ -13,10 +13,7 @@ const AppDownload = () => {
                     paddingBottom: "200px",
                 }}
             ></div>
-            <div
-                className="container mx-auto px-10 md:px-20 md:flex font-mulish"
-                style={{ color: theme.textcolor.dark }}
-            >
+            <div className="container mx-auto px-10 md:px-20 md:flex font-mulish">
                 <div className="w-full md:w-1/2 pr-8 space-y-5 flex flex-col justify-center lg:-mt-40">
                     <h2 className="text-3xl md:text-3xl xl:text-5xl font-bold w-full">
                         Mobile App Download

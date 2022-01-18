@@ -3,10 +3,11 @@ import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthUserContext';
+import { AiFillGoogleCircle } from 'react-icons/ai';
 
 const Signup = () => {
   const { theme } = useTheme();
-  const { loading,message,dispatch,registerUser} = useAuth();
+  const { loading,message,dispatch,registerUser,openGoogleLoginPage} = useAuth();
 
   const fname = useRef(null);
   const lname = useRef(null);
@@ -41,14 +42,17 @@ const Signup = () => {
     <div className='h-screen flex justify-between items-center'>
       <div
         style={{
-          background: theme.secondary.light,
-          color: theme.textcolor.light,
+          backgroundImage: `
+            linear-gradient(45deg, 
+            ${theme.secondary.light}, 
+            ${theme.textcolor.light})`
         }}
         className='hidden md:flex w-2/4 h-screen  flex-col justify-center items-center'>
         {/* <div className=' pl-0'>
           <img src='/img/shoprack-inventory.svg' alt='' />
         </div> */}
         <div className='px-10 pt-32 '>
+          
           <div className='px-20'>
             <img src='/img/white-quotes.svg' alt='' />
           </div>
@@ -81,9 +85,9 @@ const Signup = () => {
           </p>
         )}
         
-        <div className='pb-5'>
+        <Link to="/" className='pb-5'>
           <img src='/img/shoprack-logo.svg' alt='' />
-        </div>
+        </Link>
         <form action='' className='flex flex-col'>
           <div>
             <input 
@@ -96,28 +100,29 @@ const Signup = () => {
               }}
             />
           </div>
-          <div>
+          <div className="relative flex flex-col">
             <input 
               type='text' 
-              placeholder='Last Name' 
+              placeholder='Enter email'
               ref={lname} 
-              className='p-4 mt-5 rounded-full outline-none w-full'
+              className='p-4 mt-5 rounded-full outline-none w-full pear placeholder:'
               style={{
                 border: `1px solid ${theme.primary.dark}`,
               }}
             />
+            <label htmlFor='name' className="absolute top-10 left-4 pear-placeholder-shown:text-white" >
+              {" "}
+            </label>
           </div>
           <div>
             <input
-              type='text'
+              type='email'
               placeholder={message?.emailError ? message.emailError : "Email Address"}
               ref={email}
-              className={
-                `
-                  p-4 mt-5 focus:border-2 rounded-full w-full
-                  ${message?.emailError ? "text-red-600 outline-dashed outline-red-400 outline-2": "outline-none"}
-                `
-              }
+              className={`
+                  p-4 mt-5 focus:border-2 rounded-full w-full focus:outline-none
+                  ${message?.emailError.length > 0 ? "invalid:border-pink-500 invalid:text-pink-600": ""}
+              `}
               onFocus={()=>dispatch({type:"emailError",payload:""})}
               style={{
                 border: `1px solid ${theme.primary.dark}`,
@@ -126,14 +131,14 @@ const Signup = () => {
           </div>
           <div>
             <input 
-              type='text' 
+              type='password' 
               placeholder={message?.passwordError ? message.passwordError : "Password"}
               ref={password}
               onFocus={()=>dispatch({type:"passwordError",payload:""})}
               className={
                 `
                   p-4 mt-5 focus:border-2 rounded-full w-full
-                  ${message?.passwordError ? "text-red-600 outline-dashed outline-red-400 outline-2": "outline-none"}
+                  ${message?.passwordError ? "text-red-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500": "outline-none"}
                 `
               }
               style={{
@@ -171,6 +176,13 @@ const Signup = () => {
             Forgot Password??
           </p>
         </form>
+        <span
+          className="flex items-center"
+          onClick={openGoogleLoginPage}
+        >
+          Signup with: {" "} &nbsp;&nbsp;&nbsp;&nbsp;
+          <AiFillGoogleCircle color={theme.secondary.light} />
+        </span>
       </div>
     </div>
   );

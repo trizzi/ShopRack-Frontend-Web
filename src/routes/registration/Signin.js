@@ -1,38 +1,55 @@
-import React,{useState, useEffect, useRef} from 'react';
+import React,{useEffect, useRef,useCallback} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
+import { useAuth } from '../../context/AuthUserContext';
 
 const Signin = () => {
-  const signin = useRef(null);
-  const { theme } = useTheme();
-  const [loading, setLoading] = useState(false)
+  const signinButton = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  
+  const navigate = useNavigate();
 
-  const signinHandler = (e)=>{
+  const { theme } = useTheme();
+
+  const { login,loading,message} = useAuth();
+
+  const signinHandler = useCallback((e)=>{
     e.preventDefault();
-    setLoading(true);
-  }
+
+    const user = {
+      email:email.current.value,
+      password:password.current.value
+    }
+ 
+    login(user, () =>{
+      navigate("/dashboard", { replace: true });
+    })
+
+  },[navigate,login,email,password])
 
   useEffect(()=>{
-    const ev = signin.current
-    ev.addEventListener("click",signinHandler)
+    const button = signinButton.current
+    button.addEventListener("click",signinHandler)
 
     return ()=>{
-      if(ev !== null){
-        ev.removeEventListener("click",signinHandler);
-      }  
-      setLoading(false)
+      if(button !== null){
+        button.removeEventListener("click",signinHandler);
+      }
     }
-  },[])
+  },[signinHandler])
 
   return (
-    <div className='h-screen flex justify-between items-center'>
+    <div className='relative h-screen flex justify-between items-center'>
       <div
         style={{
-          background: theme.secondary.light,
-          color: theme.textcolor.light,
+          backgroundImage: `
+            linear-gradient(45deg, 
+            ${theme.secondary.light}, 
+            ${theme.textcolor.light})`
         }}
-        className='hidden md:flex w-2/4 h-screen  flex-col justify-center items-center'>
+        className='relative z-20 hidden md:flex w-2/4 h-screen  flex-col justify-center items-center'>
         {/* <div className=' pl-0'>
           <img src='/img/shoprack-inventory.svg' alt='' />
         </div> */}
@@ -62,13 +79,21 @@ const Signin = () => {
       </div>
 
       <div className='flex flex-col justify-center items-center w-full md:w-2/4 px-8 '>
-        <div className=''>
+
+        {message?.success && (
+          <p className="bg-green-600 text-white p-10 absolute top-0 w-full text-center z-10">
+            {message.success}
+          </p>
+        )}
+
+        <Link to="/" className=''>
           <img src='/img/shoprack-logo.svg' alt='' />
-        </div>
+        </Link>
         <form action='' className='flex flex-col'>
           <div>
             <input
-              type='text'
+              type='email'
+              ref={email}
               placeholder='Email Address'
               className='p-4 mt-5 focus:border-2 rounded-full outline-none w-full'
               style={{
@@ -78,7 +103,8 @@ const Signin = () => {
           </div>
           <div>
             <input 
-              type='text' 
+              type='password'
+              ref={password} 
               placeholder='Password' 
               className='p-4 my-5 focus:border-2 rounded-full outline-none w-full'
               style={{
@@ -91,7 +117,7 @@ const Signin = () => {
             text={loading ? 'Loading...' : 'SIGN IN'} 
             background
             disable={loading}
-            refs={signin}
+            refs={signinButton}
           />
 
           <p className='px-7 py-3'>
