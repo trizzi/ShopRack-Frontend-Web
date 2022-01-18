@@ -11,7 +11,6 @@ const Signin = () => {
 
   let location = useLocation();
   const navigate = useNavigate();
-  let from = location.state?.from?.pathname || "/";
 
   const { theme } = useTheme();
 
@@ -24,12 +23,12 @@ const Signin = () => {
       email:email.current.value,
       password:password.current.value
     }
-
+ 
     login(user, () =>{
-      navigate(from, { replace: true });
+      navigate("/dashboard", { replace: true });
     })
 
-  },[navigate,login,email,password, from])
+  },[navigate,login,email,password])
 
   useEffect(()=>{
     const button = signinButton.current

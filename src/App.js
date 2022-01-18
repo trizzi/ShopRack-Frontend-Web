@@ -49,7 +49,7 @@ function App() {
                     <CustomerReview />
                     <Blog />
                     <Footer />
-                  </>
+                  </> 
                 }
               />
               <Route

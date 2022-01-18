@@ -31,6 +31,7 @@ export const AuthUserContextProvider = ({children}) => {
     });
 
     const logout = ()=>{
+        messageUpdate("Logout successful")
         setauthUser({})
     }
 
@@ -39,6 +40,7 @@ export const AuthUserContextProvider = ({children}) => {
         return new Promise((res)=>{
             setTimeout(()=>{
                 setauthUser(user)
+                
                 messageUpdate("Login successful")
                 afterSuccessfulLogin()
                 setLoading(false)
