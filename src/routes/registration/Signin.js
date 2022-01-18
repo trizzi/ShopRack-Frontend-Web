@@ -15,7 +15,7 @@ const Signin = () => {
 
   const { theme } = useTheme();
 
-  const { authUser,login,loading,message,dispatch} = useAuth();
+  const { login,loading,message} = useAuth();
 
   const signinHandler = useCallback((e)=>{
     e.preventDefault();
@@ -24,13 +24,12 @@ const Signin = () => {
       email:email.current.value,
       password:password.current.value
     }
-    
+
     login(user, () =>{
-      dispatch({type:"success",payload:"Login Successful"})
       navigate(from, { replace: true });
     })
 
-  },[navigate, login,dispatch,authUser,email,password])
+  },[navigate,login,email,password, from])
 
   useEffect(()=>{
     const button = signinButton.current
@@ -44,13 +43,13 @@ const Signin = () => {
   },[signinHandler])
 
   return (
-    <div className='h-screen flex justify-between items-center'>
+    <div className='relative h-screen flex justify-between items-center'>
       <div
         style={{
           background: theme.secondary.light,
           color: theme.textcolor.light,
         }}
-        className='hidden md:flex w-2/4 h-screen  flex-col justify-center items-center'>
+        className='relative z-20 hidden md:flex w-2/4 h-screen  flex-col justify-center items-center'>
         {/* <div className=' pl-0'>
           <img src='/img/shoprack-inventory.svg' alt='' />
         </div> */}
@@ -80,6 +79,13 @@ const Signin = () => {
       </div>
 
       <div className='flex flex-col justify-center items-center w-full md:w-2/4 px-8 '>
+
+        {message?.success && (
+          <p className="bg-green-600 text-white p-10 absolute top-0 w-full text-center z-10">
+            {message.success}
+          </p>
+        )}
+
         <div className=''>
           <img src='/img/shoprack-logo.svg' alt='' />
         </div>

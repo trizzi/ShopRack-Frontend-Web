@@ -39,6 +39,7 @@ export const AuthUserContextProvider = ({children}) => {
         return new Promise((res)=>{
             setTimeout(()=>{
                 setauthUser(user)
+                messageUpdate("Login successful")
                 afterSuccessfulLogin()
                 setLoading(false)
                 res("")
