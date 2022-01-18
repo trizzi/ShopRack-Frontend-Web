@@ -3,10 +3,11 @@ import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthUserContext';
+import { AiFillGoogleCircle } from 'react-icons/ai';
 
 const Signup = () => {
   const { theme } = useTheme();
-  const { loading,message,dispatch,registerUser} = useAuth();
+  const { loading,message,dispatch,registerUser,openGoogleLoginPage} = useAuth();
 
   const fname = useRef(null);
   const lname = useRef(null);
@@ -41,14 +42,17 @@ const Signup = () => {
     <div className='h-screen flex justify-between items-center'>
       <div
         style={{
-          background: theme.secondary.light,
-          color: theme.textcolor.light,
+          backgroundImage: `
+            linear-gradient(45deg, 
+            ${theme.secondary.light}, 
+            ${theme.textcolor.light})`
         }}
         className='hidden md:flex w-2/4 h-screen  flex-col justify-center items-center'>
         {/* <div className=' pl-0'>
           <img src='/img/shoprack-inventory.svg' alt='' />
         </div> */}
         <div className='px-10 pt-32 '>
+          
           <div className='px-20'>
             <img src='/img/white-quotes.svg' alt='' />
           </div>
@@ -81,9 +85,9 @@ const Signup = () => {
           </p>
         )}
         
-        <div className='pb-5'>
+        <Link to="/" className='pb-5'>
           <img src='/img/shoprack-logo.svg' alt='' />
-        </div>
+        </Link>
         <form action='' className='flex flex-col'>
           <div>
             <input 
@@ -96,7 +100,7 @@ const Signup = () => {
               }}
             />
           </div>
-          <div class="relative flex flex-col">
+          <div className="relative flex flex-col">
             <input 
               type='text' 
               placeholder='Enter email'
@@ -107,7 +111,7 @@ const Signup = () => {
               }}
             />
             <label htmlFor='name' className="absolute top-10 left-4 pear-placeholder-shown:text-white" >
-              Last Name
+              {" "}
             </label>
           </div>
           <div>
@@ -172,6 +176,13 @@ const Signup = () => {
             Forgot Password??
           </p>
         </form>
+        <span
+          className="flex items-center"
+          onClick={openGoogleLoginPage}
+        >
+          Signup with: {" "} &nbsp;&nbsp;&nbsp;&nbsp;
+          <AiFillGoogleCircle color={theme.secondary.light} />
+        </span>
       </div>
     </div>
   );

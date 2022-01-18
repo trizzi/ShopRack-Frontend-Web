@@ -45,7 +45,7 @@ export const AuthUserContextProvider = ({children}) => {
                 afterSuccessfulLogin()
                 setLoading(false)
                 res("")
-            },2000)
+            },4000)
         })
     }
 

@@ -1,15 +1,14 @@
 import React,{useEffect, useRef,useCallback} from 'react';
 import Button from '../../components/button-component/Button';
 import { useTheme } from '../../context/ThemeContext';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { useAuth } from '../../context/AuthUserContext';
 
 const Signin = () => {
   const signinButton = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-
-  let location = useLocation();
+  
   const navigate = useNavigate();
 
   const { theme } = useTheme();
@@ -45,8 +44,10 @@ const Signin = () => {
     <div className='relative h-screen flex justify-between items-center'>
       <div
         style={{
-          background: theme.secondary.light,
-          color: theme.textcolor.light,
+          backgroundImage: `
+            linear-gradient(45deg, 
+            ${theme.secondary.light}, 
+            ${theme.textcolor.light})`
         }}
         className='relative z-20 hidden md:flex w-2/4 h-screen  flex-col justify-center items-center'>
         {/* <div className=' pl-0'>
@@ -85,9 +86,9 @@ const Signin = () => {
           </p>
         )}
 
-        <div className=''>
+        <Link to="/" className=''>
           <img src='/img/shoprack-logo.svg' alt='' />
-        </div>
+        </Link>
         <form action='' className='flex flex-col'>
           <div>
             <input
