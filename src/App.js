@@ -4,7 +4,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import { useTheme } from './context/ThemeContext';
+
 import { AuthUserContextProvider } from './context/AuthUserContext';
 import Loading from './components/Loading';
 
@@ -18,12 +18,11 @@ const Services = React.lazy(()=> import('./components/services/Services'));
 const Showcase = React.lazy(()=> import('./components/Showcase'));
 const Dashboard = React.lazy(()=> import('./routes/Dashboard'));
 const AuthCheck = React.lazy(()=> import('./HOC/AuthCheck'));
-
+import ContactUs from './components/contactus/ContactUs';
 const Signin = React.lazy(()=> import('./routes/registration/Signin'));
 const Signup = React.lazy(()=> import('./routes/registration/Signup'));
 
 function App() {
-
   const [isOpen, setIsOpen] = useState(false);
   const {theme} = useTheme()
 
@@ -68,6 +67,11 @@ function App() {
               />
               <Route
                 exact
+                path='/contactus'
+                element={<ContactUs />}
+              />
+              <Route
+                exact
                 path='/signup'
                 element={
                   <Suspense fallback={<Loading />}>
@@ -75,7 +79,7 @@ function App() {
                   </Suspense>
                 }
               />
-              <Route 
+              <Route
                 exact
                 path="/dashboard" 
                 element={
