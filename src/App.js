@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import Dropdown from './components/Dropdown';
 import Services from './components/services/Services';
 import Showcase from './components/Showcase';
+import ContactUs from './components/contactus/ContactUs';
 import Signin from './routes/registration/Signin';
 import Signup from './routes/registration/Signup';
 import { ThemeContextProvider } from './context/ThemeContext';
@@ -19,7 +20,6 @@ import { AuthUserContextProvider } from './context/AuthUserContext';
 import Dashboard from './routes/Dashboard';
 
 function App() {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -58,13 +58,18 @@ function App() {
               />
               <Route
                 exact
+                path='/contactus'
+                element={<ContactUs />}
+              />
+              <Route
+                exact
                 path='/signup'
                 element={<Signup />}
               />
-              <Route 
+              <Route
                 exact
-                path="/dashboard" 
-                element={<Dashboard />} 
+                path='/dashboard'
+                element={<Dashboard />}
               />
             </Routes>
           </Router>
