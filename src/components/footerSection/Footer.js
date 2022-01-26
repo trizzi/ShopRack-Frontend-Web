@@ -18,7 +18,7 @@ const Footer = () => {
 
     return (
         <footer className="py-20min-h-0 w-full mt-20 relative" 
-            style={{backgroundColor:theme.primary.normal, color:theme.textcolor.black}}
+            style={{backgroundColor:theme.primary.normal}}
         >
             <div className="absolute w-screen h-full" style={{ 
                 backgroundImage:"url('/img/vector.png')", backgroundSize:"cover"}}>

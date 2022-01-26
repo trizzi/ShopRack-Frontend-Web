@@ -53,7 +53,7 @@ const Showcase = () => {
       </div> 
       <div
         className='container z-20 relative p-4 mx-auto md:px-20 md:flex md:justify-around md:items-center font-mulish'
-        style={{ color: theme.textcolor.dark }}>
+      >
         <div
           className='relative flex flex-col w-full md:w-1/2 px-10 sm:px-1 md:pr-20 pt-20'
         >

@@ -17,7 +17,7 @@ const Services = () => {
         style={{backgroundColor:theme.primary.normal, width:"50%",paddingBottom:"50%"}}
       ></div>
     
-      <div className='container mx-auto py-10 lg:py-32 relative z-20' style={{color:theme.textcolor.dark}}>
+      <div className='container mx-auto py-10 lg:py-32 relative z-20'>
         <div className="flex flex-col items-center space-y-7">
           <h1 className="text-3xl xl:text-4xl font-black">
             <FadeIn> ShopRacks Services</FadeIn>

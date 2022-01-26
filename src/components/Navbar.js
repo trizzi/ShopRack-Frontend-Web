@@ -1,15 +1,41 @@
-import React from 'react';
+import React,{useEffect,useRef, useCallback} from 'react';
 import Button from './button-component/Button';
-import { Link } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
+import { Link, useNavigate} from 'react-router-dom';
 import SlideDown from './animations/SlideDown';
+import { useAuth } from '../context/AuthUserContext';
 
 const Navbar = ({ toggle }) => {
-  const { theme } = useTheme();
+  const {authUser, logout} = useAuth();
+
+  const navigate = useNavigate();
+
+  const logoutButton = useRef(null)
+
+  const handler = useCallback((e)=>{
+    e.preventDefault();
+    if(authUser?.email){
+      logout()
+      navigate("/")
+    }else{
+      navigate("/signin")
+    }
+  },[authUser,logout,navigate])
+
+  useEffect(()=>{
+    const button = logoutButton.current
+    button.addEventListener("click",handler)
+
+    return ()=>{
+      if(button !== null){
+        button.removeEventListener("click",handler);
+      }  
+    }
+  },[handler])
+
   return (
     <nav
       role='navigation'
-      style={{ color: theme.textcolor.dark }}>
+    >
       <SlideDown className='flex justify-between items-center min-h-0 relative shadow-sm font-mulish container mx-auto'>
         <Link to='#' className='pl-2 shrink-0'>
           <img
@@ -35,12 +61,12 @@ const Navbar = ({ toggle }) => {
           </a>
           <Link to='#'>ABOUT</Link>
 
-          <Link to='/signup'>
-            <Button text='GET STARTED' background />
+          <Link to={authUser?.email ? '/dashboard':'/signup'}>
+            <Button text={authUser?.email ? 'DASHBOARD':'GET STARTED'} background />
           </Link>
 
-          <Link to='/signin'>
-            <Button text='LOGIN' />
+          <Link to={authUser?.email ? 'logout':'/signin'} >
+            <Button text={authUser?.email ? 'LOGOUT' : 'LOGIN'} refs={logoutButton} />
           </Link>
         </div>
       </SlideDown>

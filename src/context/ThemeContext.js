@@ -18,7 +18,7 @@ export const ThemeContextProvider = ({children}) => {
         },
         textcolor:{
             light: '#ffffff',
-            dark:"#7e7e7e",
+            dark:"#222222",
             black: "black"
         },
         transparent: 'transparent',
