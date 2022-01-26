@@ -15,7 +15,7 @@ const Dropdown = ({ isOpen, toggle }) => {
         HOME
       </Link>
       <Link
-        to='#'
+        to='/contactus'
         className='whitespace-nowrap p-4 border-b-2'>
         CONTACT US
       </Link>
