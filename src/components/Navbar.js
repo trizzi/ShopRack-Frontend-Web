@@ -25,7 +25,9 @@ const Navbar = ({ toggle }) => {
         </div>
         <div className='pr-8 md:flex hidden space-x-5 lg:space-x-16 items-center'>
           <Link to='/'>Home</Link>
-          <Link to='#' className='whitespace-nowrap'>
+          <Link
+            to='/contactus'
+            className='whitespace-nowrap'>
             CONTACT US
           </Link>
           <a href='https://dev-shopracks.pantheonsite.io'>
