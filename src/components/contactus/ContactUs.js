@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from '../../components/nav-seection/Navbar';
+import Navbar from '../../components/Navbar';
 import Button from '../../components/button-component/Button';
-import Dropdown from '../../components/nav-seection/Dropdown';
+import Dropdown from '../../components/Dropdown';
 import { useTheme } from '../../context/ThemeContext';
-import Footer from '../../components/footer-section/Footer';
+import Footer from '../../components/footerSection/Footer';
 
 const ContactUs = () => {
   const { theme } = useTheme();
