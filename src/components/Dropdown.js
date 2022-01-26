@@ -11,8 +11,8 @@ const Dropdown = ({ isOpen, toggle }) => {
           : 'hidden'
       }
       onClick={toggle}>
-      <Link to='#' className='p-4 border-b-2'>
-        FAQs
+      <Link to='/' className='p-4 border-b-2'>
+        HOME
       </Link>
       <Link
         to='#'
