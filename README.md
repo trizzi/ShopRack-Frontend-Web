@@ -5,4 +5,4 @@
 Official web application for ShopRack
 Click below to go to the landing page
 
-https://www.shopracks.xyz/
+https://www.shopracks.com.ng/
